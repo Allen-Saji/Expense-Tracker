@@ -18,7 +18,16 @@ function Signup() {
           <i class="fa fa-user"></i>
           <input
             type="text"
-            placeholder="Username"
+            placeholder="Name"
+            class="input_text"
+            autocomplete="off"
+          />
+        </div>
+        <div class="input_group">
+          <i class="fa fa-user"></i>
+          <input
+            type="text"
+            placeholder="Email"
             class="input_text"
             autocomplete="off"
           />
@@ -32,6 +41,7 @@ function Signup() {
             autocomplete="off"
           />
         </div>
+        
         <div class="button_group" id="login_button">
           <a>Submit</a>
         </div>
