@@ -13,6 +13,9 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 app.use('/api/users', require('./routes/userRoutes'))
+app.use('/api/transactions', require('./routes/transactionRoutes'))
+app.use('/api/credit', require('./routes/creditRoutes'))
+app.use('/api/debit', require('./routes/debitRoutes'))
 
 // Serve Frontend
 if (process.env.NODE_ENV === 'production') {
