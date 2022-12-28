@@ -9,5 +9,6 @@ const connectDB = async () => {
         process.exit(1)
     }
 }
+mongoose.set('strictQuery', false);
 
 module.exports = connectDB
