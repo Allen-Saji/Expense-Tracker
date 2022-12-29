@@ -1,15 +1,17 @@
+const {deleteDebit, updateDebit, getDebits, createDebit} = require('../controllers/debitController') 
+const {protect} = require('../middleware/authMiddleware')
 const express = require('express')
 const router = express.Router()
 
 router
       .route('/')
-      .get((req,res) => {res.status(200).send("message: this is get debit route")})
-      .post((req,res) => {res.status(200).send("message: this is post debit route")})
+      .get(protect, getDebits)
+      .post(protect, createDebit)
 
 router
       .route('/:id')
-      .delete((req,res) => {res.status(200).send("message: this is delete debit route")})
-      .put((req,res) => {res.status(200).send("message: this is update debit route")})
+      .delete(protect, deleteDebit)
+      .put(protect, updateDebit)
 
 
 

@@ -1,15 +1,17 @@
 const express = require('express')
 const router = express.Router()
+const {protect} = require('../middleware/authMiddleware') 
+const {createCredit, getCredits, deleteCredit, updateCredit} = require('../controllers/creditController')
 
 router
       .route('/')
-      .get((req,res) => {res.status(200).send("message: this is get credit route")})
-      .post((req,res) => {res.status(200).send("message: this is post credit route")})
+      .get(protect, getCredits)
+      .post(protect, createCredit)
 
 router
       .route('/:id')
-      .delete((req,res) => {res.status(200).send("message: this is delete credit route")})
-      .put((req,res) => {res.status(200).send("message: this is update credit route")})
+      .delete(protect,deleteCredit)
+      .put(protect, updateCredit)
 
 
 
