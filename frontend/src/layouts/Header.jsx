@@ -14,6 +14,7 @@ function Header() {
     }
 
   return (
+    <>
     <header className='header'>
         <div className="logo">
             <Link to={'/'}>Expense Tacker</Link>
@@ -40,6 +41,8 @@ function Header() {
             )}
         </ul>
     </header>
+    <div className="hr"></div>
+    </>
   )
 }
 

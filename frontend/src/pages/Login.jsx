@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Signup from './Signup'
 
 function login() {
     $(".input_text").focus(function(){
@@ -11,31 +10,31 @@ function login() {
     })
   return (
     <>
-         <div class="login_form_container">
-      <div class="login_form">
+         <div className="login_form_container">
+      <div className="login_form">
         <h2>Login</h2>
-        <div class="input_group">
-          <i class="fa fa-user"></i>
+        <div className="input_group">
+          <i className="fa fa-user"></i>
           <input
             type="text"
             placeholder="Username"
-            class="input_text"
-            autocomplete="off"
+            className="input_text"
+            autoComplete="off"
           />
         </div>
-        <div class="input_group">
-          <i class="fa fa-unlock-alt"></i>
+        <div className="input_group">
+          <i className="fa fa-unlock-alt"></i>
           <input
             type="password"
             placeholder="Password"
-            class="input_text"
-            autocomplete="off"
+            className="input_text"
+            autoComplete="off"
           />
         </div>
-        <div class="button_group" id="login_button">
+        <div className="button_group" id="login_button">
           <a>Submit</a>
         </div>
-        <div class="footer">
+        <div className="footer">
           <Link to={"/signup"}>New User?</Link>
         </div>
       </div>

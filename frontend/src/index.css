@@ -31,7 +31,6 @@ body{
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
-  border-bottom: 1px solid #e6e6e6;
   margin-bottom: 20px;
   font-size: 30px;
 }
@@ -81,6 +80,47 @@ body{
 
 .btn:hover {
   transform: scale(0.98);
+}
+
+ .hr {
+  position: relative;
+  height: 5px;
+  width: 100%;
+  background-color:  black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+ }
+
+ .hr::before {
+  position: absolute;
+  width: 170%;
+  height: 170%;
+  content: '';
+  background-image: conic-gradient(#ee00ff,#ee00ff,transparent);
+  animation: ray 6s linear infinite;
+ }
+
+ .hr::after {
+  position: absolute;
+  width: 170%;
+  height: 170%;
+  content: '';
+  background-image: conic-gradient(#00ccff,#00ccff,transparent);
+  animation: ray 6s linear infinite;
+  animation-delay: 3s;
+ }
+
+ @keyframes ray{
+  0%{
+      transform: translateX(100%);
+  }
+ 100%{
+  transform: translateX(0);
+ }
+  
+  
 }
 
 
@@ -146,7 +186,7 @@ color: #00ccff;
   content: '';
   background-image: conic-gradient(transparent, transparent, transparent, #00ccff);
   animation: rotate_border 6s linear infinite;
-  animation-delay: -3s;
+  animation-delay: 3s;
 }
 @keyframes rotate_border{
   0%{
