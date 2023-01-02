@@ -16,7 +16,64 @@ function Signup() {
         $(this).prev('.fa').removeclass('glowIcon')
     })
 
-    
+    const [formData, setFormData] = useState({
+      name: '',
+      email: '',
+      password: '',
+      password2: '',
+    })
+  
+    const { name, email, password, password2 } = formData
+  
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+  
+    const { isLoading } = useSelector((state) => state.auth)
+  
+    const onChange = (e) => {
+      setFormData((prevState) => ({
+        ...prevState,
+        [e.target.name]: e.target.value,
+      }))
+    }
+  
+    // NOTE: no need for useEffect here as we can catch the
+    // AsyncThunkAction rejection in our onSubmit or redirect them on the
+    // resolution
+    // Side effects shoulld go in event handlers where possible
+    // source: - https://beta.reactjs.org/learn/keeping-components-pure#where-you-can-cause-side-effects
+  
+    const onSubmit = (e) => {
+      e.preventDefault()
+  
+      if (password !== password2) {
+        toast.error('Passwords do not match')
+      } else {
+        const userData = {
+          name,
+          email,
+          password,
+        }
+  
+        dispatch(register(userData))
+          .unwrap()
+          .then((user) => {
+            // NOTE: by unwrapping the AsyncThunkAction we can navigate the user after
+            // getting a good response from our API or catch the AsyncThunkAction
+            // rejection to show an error message
+            toast.success(`Registered new user - ${user.name}`)
+            navigate('/')
+          })
+          .catch(toast.error)
+      }
+    }
+  
+    if (isLoading) {
+      return <Spinner />
+    }
+  
+
+
   return (
     <>
          <div className="login_form_container">
@@ -27,6 +84,7 @@ function Signup() {
           <input
             type="text"
             placeholder="Name"
+            name='name'
             className="input_text"
             autoComplete="off"
           />
@@ -36,6 +94,7 @@ function Signup() {
           <input
             type="text"
             placeholder="Email"
+            name='email'
             className="input_text"
             autoComplete="off"
           />
@@ -44,7 +103,18 @@ function Signup() {
           <i className="fa fa-unlock-alt"></i>
           <input
             type="password"
+            name='password'
             placeholder="Password"
+            className="input_text"
+            autoComplete="off"
+          />
+        </div>
+        <div className="input_group">
+          <i className="fa fa-unlock-alt"></i>
+          <input
+            type="password"
+            name='password2'
+            placeholder="Confirm Password"
             className="input_text"
             autoComplete="off"
           />
