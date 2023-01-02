@@ -1,14 +1,22 @@
-import React from 'react'
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import { useSelector, useDispatch } from 'react-redux'
+import { register } from '../features/auth/authSlice'
+import Spinner from '../components/Spinner'
 import { Link } from 'react-router-dom'
 
 
 function Signup() {
+
     $(".input_text").focus(function(){
         $(this).prev('.fa').addclass('glowIcon')
     })
     $(".input_text").focusout(function(){
         $(this).prev('.fa').removeclass('glowIcon')
     })
+
+    
   return (
     <>
          <div className="login_form_container">
