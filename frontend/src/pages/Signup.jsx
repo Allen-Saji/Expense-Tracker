@@ -7,14 +7,8 @@ import Spinner from '../components/Spinner'
 import { Link } from 'react-router-dom'
 
 
-function Signup() {
 
-    $(".input_text").focus(function(){
-        $(this).prev('.fa').addclass('glowIcon')
-    })
-    $(".input_text").focusout(function(){
-        $(this).prev('.fa').removeclass('glowIcon')
-    })
+function Signup() {
 
     const [formData, setFormData] = useState({
       name: '',
@@ -77,6 +71,7 @@ function Signup() {
   return (
     <>
          <div className="login_form_container">
+         <form onSubmit={onSubmit}>
       <div className="login_form">
         <h2>Signup</h2>
         <div className="input_group">
@@ -87,6 +82,8 @@ function Signup() {
             name='name'
             className="input_text"
             autoComplete="off"
+            value={name}
+            onChange={onChange}
           />
         </div>
         <div className="input_group">
@@ -95,6 +92,8 @@ function Signup() {
             type="text"
             placeholder="Email"
             name='email'
+            value={email}
+            onChange={onChange}
             className="input_text"
             autoComplete="off"
           />
@@ -104,6 +103,8 @@ function Signup() {
           <input
             type="password"
             name='password'
+            value={password}
+            onChange={onChange}
             placeholder="Password"
             className="input_text"
             autoComplete="off"
@@ -114,6 +115,8 @@ function Signup() {
           <input
             type="password"
             name='password2'
+            value={password2}
+            onChange={onChange}
             placeholder="Confirm Password"
             className="input_text"
             autoComplete="off"
@@ -121,12 +124,13 @@ function Signup() {
         </div>
         
         <div className="button_group" id="login_button">
-          <a>Submit</a>
+        <button>Submit</button>
         </div>
         <div className="footer">
           <Link to={"/login"}>Already Registered?</Link>
         </div>
       </div>
+      </form>
     </div>
     </>
   )
