@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = '/api/transactions/'
+const API_URL = 'http://localhost:5000/api/transactions/'
 
 
 // Get user transactions

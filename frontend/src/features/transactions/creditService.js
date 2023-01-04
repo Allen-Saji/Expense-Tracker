@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = '/api/credit/'
+const API_URL = 'http://localhost:5000/api/credit/'
 
 // Create new credit
 const createCredit = async (creditData, token) => {

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = '/api/debit/'
+const API_URL = 'http://localhost:5000/api/debit/'
 
 // Create new debit
 const createDebit = async (debitData, token) => {

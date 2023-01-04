@@ -10,7 +10,7 @@ function Header() {
 
     const onLogout = () => {
         dispatch(logout())
-        navigate('/')
+        navigate('/login')
     }
 
   return (
