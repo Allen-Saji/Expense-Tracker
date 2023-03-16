@@ -3,8 +3,8 @@ import creditService from './creditService'
 import { extractErrorMessage } from '../../utils'
 
 const initialState = {
-    credit: null,
     credits: null,
+    credit: null,
 }
 
 // Create new credit
@@ -61,12 +61,12 @@ export const updateCredit = createAsyncThunk(
   )
 
 export const creditSlice = createSlice({
-  name: 'debit',
+  name: 'credit',
   initialState,
   extraReducers: (builder) => {
     builder
       .addCase(getCredits.pending, (state) => {
-        state.credits = null
+        state.credit = null
       })
       .addCase(getCredits.fulfilled, (state, action) => {
         state.credits = action.payload

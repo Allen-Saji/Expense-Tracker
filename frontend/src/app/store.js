@@ -8,8 +8,8 @@ import transactionReducer from '../features/transactions/transactionSlice'
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    credit: creditReducer,
-    debit: debitReducer,
-    transaction: transactionReducer
+    credits: creditReducer,
+    debits: debitReducer,
+    transactions: transactionReducer
   },
 })

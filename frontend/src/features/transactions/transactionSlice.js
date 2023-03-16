@@ -22,12 +22,15 @@ export const getTransactions = createAsyncThunk(
 
   
 export const transactionSlice = createSlice({
-    name: 'transaction',
+    name: 'transactions',
     initialState,
     extraReducers: (builder) => {
       builder
         .addCase(getTransactions.pending, (state) => {
           state.transactions = null
+        })
+        .addCase(getTransactions.fulfilled, (state, action) => {
+          state.transactions = action.payload
         })
     },
   })

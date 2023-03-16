@@ -284,5 +284,121 @@ h2{
 }
 .glowIcon {
   text-shadow: 0 0 10px #00ccff;
+}
 
+
+/* credit/transaction/debit table component */
+.glass {
+  position: relative;
+  background-color: #0c1022;
+  justify-content: center;
+  width: 40%;
+  height: 65vh;
+  border-radius: 50px 5px;
+}
+
+.transaction-content {
+  box-sizing: border-box;
+  min-width: 100px;
+  text-align: left;
+  margin: 2px 10px;
+}
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+.display-amt {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 30px auto 10px;
+  padding: 10px;
+  height: 130px;
+}
+
+.amt-box{
+  display: flex;
+  margin: 0;
+  border: 2px solid #00ccff;
+}
+
+.amt-label {
+  font-size: 18px;
+  margin: auto;
+  border-bottom: 2px solid #00ccff;
+  padding: 5px;
+} 
+
+.manage-btns {
+  justify-content: space-between;
+  width: 67%;
+  margin: 5px auto;
+}
+
+
+.right-dash {
+  border: 2px solid #00ccff;
+  width: 50%;
+  margin: 30px;
+  justify-content: start;
+  align-content: flex-start;
+}
+
+.transaction-name {
+  width: 200px;
+}
+
+.transaction-date {
+  margin-right: 0;
+}
+
+.item-debit {
+  color: red;
+}
+
+.item-credit {
+  color: green;
+}
+
+
+/* spinner */
+
+.loadingSpinnerContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loadingSpinner {
+  width: 64px;
+  height: 64px;
+  border: 8px solid;
+  border-color: #000 transparent #555 transparent;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.remove {
+  display: none;
 }

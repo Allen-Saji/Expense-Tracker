@@ -6,7 +6,7 @@ const Credit = require('../models/transactionModel')
 // @route   GET /api/credit
 // @access  Private
 const getCredits = asyncHandler(async (req, res) => {
-    const credits = await Credit.find({ userId: req.user.id , type: "credit"})
+    const credits = await Credit.find({ userId: req.user.id , type: "credit"}).sort({date:-1})
     res.status(200).json (credits)
   })
 

@@ -4,7 +4,7 @@ const {protect} = require('../middleware/authMiddleware')
 const express = require('express')
 const router = express.Router()
 
-router.get('/', protect,displayTransactions )
+router.get('/', protect,displayTransactions)
 
 
 
